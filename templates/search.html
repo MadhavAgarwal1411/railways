@@ -1,0 +1,33 @@
+{% extends 'base.html'%} 
+{% block link%}
+<link rel="stylesheet" href="static/css/search.css" />
+{% endblock %}
+
+{% block content%}
+    <h2>Search results for {{params.tname}}({{params.train_no}})</h2>
+    <table>
+      <tr>
+        <th>Station</th>
+        <th>arrival time</th>
+        <th>departure time</th>
+
+      </tr>
+
+      <tr>
+        {% comment %} <td>{{ srch.train_no}}</td>
+        <td>{{ srch.tname }}</td>
+        <td>{{ srch.source }}</td>
+        <td>{{ srch.destination }}</td>
+        <td>{{ srch.arrival_time }}</td>
+        <td>{{ srch.dep_time }}</td> {% endcomment %}
+        {% comment %} <td>{{ srch.avail_seats }}</td>
+        <td>{{ srch.date }}</td> {% endcomment %}
+        {% comment %} {% for x in {{reaches}} %} {% endcomment %}
+        <td>
+          {{params2}}</td>
+        {% comment %} {% endfor %} {% endcomment %}
+      </tr>
+    </table>
+    {% comment %} {{srch}} {% endcomment %}
+
+{% endblock %}

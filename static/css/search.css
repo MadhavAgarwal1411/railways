@@ -1,0 +1,21 @@
+table{
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+td{
+    text-align: center;
+}
+tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+*{
+    color: red;
+}
+/*
+td{
+    display: contents;
+    align-items: center;
+    justify-content: center;
+} */

@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(255, 249, 249)
+}
+.box{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: 480px;
+    background-image: url(
+     "https://images.unsplash.com/photo-1555124618-81b95d0e5892?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYWlufGVufDB8MHwwfHx8MA%3D%3D");
+     background-size: inherit;
+
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 10%;
+}
+#form{
+    display: flex;
+    justify-content: space-between;
+    margin: 20vh 5vh 0 5vh;
+    position: relative;
+    background-color: rgba(20, 16, 16, 0.655);
+    color: rgb(254, 249, 249);
+    padding-bottom: 10vh;
+    padding: 2vh 5vw 10vh 5vw;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#form .container label{
+    font-size: 21px;
+}
+#form .container .inp{
+    line-height: 2em;
+}
+#search{
+    padding: 0px 30px;
+    height: 35px;
+    margin-top: 45px;
+    width: 13vw;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    border : 1px solid transparent;
+    cursor: pointer;
+}

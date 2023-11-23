@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Condensed:wght@500&family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: roboto;
+}
+body{
+    background-color: white;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+#head{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(20 20 20);
+}
+nav{
+    margin-top: 2vh;
+}
+nav ul{
+    display: flex;
+    gap: 5%;
+    font-size: 30px;
+    font-weight: bolder;
+    flex-direction: row;
+    margin-left: 10%;
+}
+nav ul li{
+    list-style-type: none;
+    
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgba(19, 1, 1, 0.84);
+}
+nav ul li a:hover{
+    color: rgba(30, 18, 18, 0.694);
+}
+p{
+    margin-top:  25vh;
+    font-size: 15px;
+    letter-spacing: 2px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel = "stylesheet" href = "static/css/base.css">
+    {%block link %}{%endblock%}
+</head>
+<body>
+    {%block head%}{% endblock%} 
+    <nav>
+      <ul>
+        <li><a href="http://127.0.0.1:8000/booking">Booking</a></li>
+        <li><a href="http://127.0.0.1:8000/status">Running Status</a></li>
+        <li><a href="http://127.0.0.1:8000/search_by_name">Search by Name/Number</a></li>
+        <li><a href="http://127.0.0.1:8000/search_by_station">Search by Station</a></li>
+      </ul>
+    </nav>
+    <hr />
+  </div>
+
+    {%block content %}{% endblock %}
+</body>
+</html>
