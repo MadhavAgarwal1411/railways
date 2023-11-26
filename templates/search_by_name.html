@@ -1,26 +1,33 @@
+{% extends 'base.html'%}
+{% block title %}Booking{% endblock %} {% block link%}
+<link rel="stylesheet" href="static/css/search_by_name.css" />
+{% endblock %}
 
-    {% extends 'base.html'%} {% block title %}Booking{% endblock %}
+{% block content%}
+<div class="box">
+  <div class="heading">
+    <h1>TRAIN TICKET BOOKING</h1>
+  </div>
+  <form id="form" method="get" action="http://127.0.0.1:8000/search_train">
+    <div class="container">
+      <label for="start">TRAIN NUMBER</label>
+      <input
+        type="text"
+        list="from"
+        placeholder="Enter the train number"
+        size="100vw"
+        class="inp"
+        id="start"
+        name="search_tr_no"
+        required
+        autofocus
+      />
+      <datalist id="from">
+        <option value="Delhi">Delhi</option>
+      </datalist>
+    </div>
+    <button type="search" id="search">SEARCH</button>
+  </form>
+</div>
 
-    {% block link%}
-    <link rel="stylesheet" href="static/css/search_by_name.css" />
-    {% endblock %}
-    
-    {% block content%}
-
-    <div class = "box">
-        <div class="heading">
-          <h1>TRAIN TICKET BOOKING</h1>
-        </div>
-        <form id="form">
-            <div class="container">
-              <label for="start">TRAIN NUMBER</label>
-              <input type="text" list="from" placeholder="Enter the train number" size="100vw" class="inp" id="start" required autofocus/>
-                <datalist id="from">
-                  <option value="Delhi">Delhi</option>
-                </datalist>
-            </div>
-            <button type = "search" id="search">SEARCH</button>
-          </form>
-        </div>
-    
-    {% endblock %}
+{% endblock %}

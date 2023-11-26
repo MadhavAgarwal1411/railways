@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% comment %}
+    <td>{{ srch.train_no}}</td>
+    <td>{{ srch.tname }}</td>
+    <td>{{ srch.source }}</td>
+    <td>{{ srch.destination }}</td>
+    <td>{{ srch.arrival_time }}</td>
+    <td>{{ srch.dep_time }}</td>
+    {% endcomment %} {% comment %}
+    <td>{{ srch.avail_seats }}</td>
+    <td>{{ srch.date }}</td>
+    {% endcomment %}  {% comment %}
+  <td>
+    {{[val["arrival_time"] for key, val in params2.items() if "arrival_time" in
+    val]}}
+  </td>
+  {% endcomment %}
+
+{% block link %}
+<link rel="stylesheet" href="static/css/search_status.css" />
+{% endblock %}
+
+{% block content %}
+<h2>Search results for {{ params.tname }}( {{ params.train_no }} )</h2>
+<table>
+  <tr>
+    <th>Station</th>
+    <th>arrival time</th>
+    <th>departure time</th>
+  </tr>
+
+  <tr style="display: table-cell">
+
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% for x in params2 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell; text-align: center">
+    {% for x in params3 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell">
+    {% for x in params4 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+
+</table>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="static/css/search_train.css" />
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>{{ params.tname }}( {{ params.train_no }} ) Train</h2>
+    <div class="journey">
+      <h2>{{params.source }}</h2>
+      <h2> ----------------------> </h2>
+      <h2>{{ params.destination}}</h2>
+    </div>
+</div>
+<table>
+  <tr>
+    <th>Station code</th>
+    <th>Station</th>
+    <th>Arrival time</th>
+    <th>Departure time</th>
+    <th>Distance</th>
+
+  </tr>
+  <tr style="display: table-cell">
+    <td style="display: table-row; text-align: center">{{params.source_code}}</td>
+
+    {% for x in station_code %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell">
+    <td style="display: table-row; text-align: center">{{params.source}}</td>
+
+
+    {% for x in params2 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+    <td style="display: table-row; text-align: center">{{params.destination_code}}</td>
+
+  </tr>
+  <tr style="display: table-cell; text-align: center">
+    <td style="display: table-row; text-align: center">Source</td>
+
+    {% for x in params3 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell">
+    <td style="display: table-row; text-align: center">{{params.dep_time}}</td>
+
+    {% for x in params4 %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+    <td style="display: table-row; text-align: center">Destination</td>
+
+  </tr>
+  <tr style="display: table-cell">
+    <td style="display: table-row; text-align: center">0 km</td>
+
+    {% for x in distance %}
+    <td style="display: table-row; text-align: center">{{x}} km</td>
+    {% endfor %}
+  </tr>
+</table>
+{% endblock %}

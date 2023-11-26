@@ -11,14 +11,13 @@
 <div class = "box">
     <div class="heading">
       <h1>TRAIN TICKET BOOKING</h1>
-  
     </div>
-    <form id="form">
+    <form id="form" method="get" action="http://127.0.0.1:8000/search_station">
         <div class="container">
           <label for="start">STATION CODE</label>
           <input type="text" list="from" placeholder="Enter the station code" size="100vw" class="inp" id="start" name = "search_station" required autofocus/>
             <datalist id="from">
-              <option value="Delhi">Delhi</option>
+              <option value="Delhi">VAPI</option>
             </datalist>
         </div>
 

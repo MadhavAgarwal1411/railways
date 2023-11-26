@@ -1,0 +1,15 @@
+*{
+    color: black;
+    text-align: center;
+}
+body h2{
+    margin-top: 2vh;
+}
+table caption{
+    font-weight: 800;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+table, th, td, tr{
+    border: 1px solid black;
+}

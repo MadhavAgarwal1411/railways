@@ -16,6 +16,8 @@ class User(models.Model):
     city =  models.CharField(max_length = 11)
     state = models.CharField(max_length = 15)
     pincode = models.IntegerField()
+    def __str__(self):
+        return self.user_id
 
 # class Passenger(models.Model):
 #     name = models.CharField(max_length = 20)
@@ -29,20 +31,23 @@ class User(models.Model):
 class Train(models.Model):
     train_no = models.IntegerField(primary_key = True)
     tname = models.CharField(max_length= 20)
-    source = models.CharField(max_length= 11)
+    source = models.CharField(max_length= 20)
     destination = models.CharField(max_length= 20)
     arrival_time = models.TimeField()
     dep_time = models.TimeField()
     avail_seats = models.CharField(max_length = 10)
     date =  models.DateField()
-
+    def __str__(self):
+        return self.tname
 
 class Station(models.Model):
     station_code = models.CharField(primary_key = True, max_length= 10)
     name = models.CharField(max_length = 20)
     hault = models.IntegerField()
-    arrival_time = models.TimeField()
     train_no = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
+    distance = models.IntegerField()
+    def __str__(self):
+        return self.name
 
 class Train_status(models.Model):
     train_no = models.ForeignKey(Train, primary_key = True, on_delete= models.CASCADE)
@@ -57,6 +62,8 @@ class Train_status(models.Model):
     w_seats3 = models.IntegerField()
     flare1 = models.FloatField(max_length = 11)
     flare2 = models.FloatField(max_length = 11)
+    def __str__(self):
+        return self.train_no
 
 class Ticket(models.Model):
     ticket_id = models.IntegerField(primary_key = True)
@@ -64,6 +71,8 @@ class Ticket(models.Model):
     status = models.CharField(max_length = 11)
     no_of_passenger = models.IntegerField()
     train_no = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
+    def __str__(self):
+        return self.ticket_id
 
 class Passenger(models.Model):
     passenger_id = models.IntegerField(primary_key = True)
@@ -75,15 +84,20 @@ class Passenger(models.Model):
     seat_no = models.IntegerField()
     name = models.CharField(max_length = 20)
     ticket_id = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
+    def __str__(self):
+        return self.passenger_id
 
 class Starts(models.Model):
     train_no = models.ForeignKey(Train, primary_key= True, on_delete= models.CASCADE)
     station_code = models.ForeignKey(Station, on_delete= models.SET_NULL, null=True)
+    def __str__(self):
+        return self.station_code
 
 class Stops_at(models.Model):
     train_no = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
     station_code = models.ForeignKey(Station, on_delete= models.SET_NULL, null=True)
-    time = models.DateTimeField()
+    def __str__(self):
+        return self.station_code
 
 class Reaches(models.Model):
     train_no = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
@@ -91,18 +105,26 @@ class Reaches(models.Model):
     arrival_time = models.TimeField()
     dep_time = models.TimeField()
     time = models.DurationField()
+    def __str__(self):
+        return self.train_no, self.station_code
 
 class Books(models.Model):
     user_id = models.ForeignKey(User, on_delete= models.SET_NULL, null=True)
     ticket_id = models.ForeignKey(Ticket, on_delete= models.SET_NULL, null=True)
+    def __str__(self):
+        return self.ticket_id
 
 class Cancel(models.Model):
     user_id = models.ForeignKey(User, on_delete= models.SET_NULL, null=True)
     ticket_id = models.ForeignKey(Ticket, on_delete= models.SET_NULL, null=True)
     passenger_id = models.ForeignKey(Passenger, on_delete= models.SET_NULL, null=True)
-
-class Search_train(models.Model):
-    train_no = models.IntegerField(primary_key=True)
-
-class Search_station(models.Model):
-    station_code = models.CharField(primary_key=True, max_length=10)
+    def __str__(self):
+        return self.passenger_id
+class Contact(models.Model):
+    name = models.CharField(max_length = 25)
+    email = models.EmailField(max_length = 25)
+    number = models.CharField(max_length = 10)
+    desc = models.TextField()
+    date = models.DateField()
+    def __str__(self):
+        return self.name
