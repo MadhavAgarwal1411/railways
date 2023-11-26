@@ -32,8 +32,19 @@ def search_status(request):
         params4 = []
 
         search_train = Train.objects.filter(train_no = number)
+        station = Station.objects.filter(train_no = number).values().order_by('distance')
         reaches = Reaches.objects.filter(train_no = number).values()
+        for station in station:
+            for reache in reaches:
+                if list(station.values())[0] == list(reache.values())[2]:
 
+                    li = Station.objects.filter(station_code = list(reache.values())[2]).order_by('distance')
+                    for x in li:
+                        params2.append(x.name)
+                    li2 = list(reache.values())[3]
+                    li3 = list(reache.values())[4]
+                    params3.append(li2)
+                    params4.append(li3)
 
         train_no = search_train[0].train_no
         tname = search_train[0].tname
@@ -43,15 +54,7 @@ def search_status(request):
         dep_time = search_train[0].dep_time
 
         params.update({"train_no": train_no, "tname": tname, "source": source, "destination": destination, "arrival_time": arrival_time, "dep_time": dep_time})
-        for reache in reaches:
-            li = Station.objects.filter(station_code = list(reache.values())[2])
-            for x in li:
-                params2.append(x.name)
-            li2 = list(reache.values())[3]
-            li3 = list(reache.values())[4]
 
-            params3.append(li2)
-            params4.append(li3)
 
         return render(request, "search_status.html", {"params":params, "params2": params2, "params3": params3, "params4": params4})
 def search_train(request):
@@ -64,11 +67,20 @@ def search_train(request):
     params6 = []
 
     search_train = Train.objects.filter(train_no = number)
-    reaches = Reaches.objects.filter(train_no = number).values()
-    station = Station.objects.filter(train_no = number).values()
+    reaches = Reaches.objects.filter(train_no = number).values().order_by('arrival_time')
+    station = Station.objects.filter(train_no = number).values().order_by('distance')
     for station in station:
         params5.append(list(station.values())[0])
         params6.append(list(station.values())[4])
+        for reache in reaches:
+            if list(station.values())[0] == list(reache.values())[2]:
+                li = Station.objects.filter(station_code = list(reache.values())[2]).order_by('distance')
+                for x in li:
+                    params2.append(x.name)
+                li2 = list(reache.values())[3]
+                li3 = list(reache.values())[4]
+                params3.append(li2)
+                params4.append(li3)
 
     train_no = search_train[0].train_no
     tname = search_train[0].tname
@@ -76,21 +88,14 @@ def search_train(request):
     destination = search_train[0].destination
     arrival_time = search_train[0].arrival_time
     dep_time = search_train[0].dep_time
-    station = Station.objects.filter(name = source).values()
+    station = Station.objects.filter(name = source).order_by('distance').values()
     for source_code in station:
             source_code = list(source_code.values())[0]
-    station = Station.objects.filter(name = destination).values()
+    station = Station.objects.filter(name = destination).order_by('distance').values()
     for destination_code in station:
             destination_code = list(destination_code.values())[0]
     params.update({"train_no": train_no, "tname": tname, "source": source, "destination": destination, "arrival_time": arrival_time, "dep_time": dep_time, "source_code": source_code, "destination_code": destination_code})
-    for reache in reaches:
-        li = Station.objects.filter(station_code = list(reache.values())[2])
-        for x in li:
-            params2.append(x.name)
-        li2 = list(reache.values())[3]
-        li3 = list(reache.values())[4]
-        params3.append(li2)
-        params4.append(li3)
+
     return render(request, "search_train.html", {"params":params, "params2": params2, "params3": params3, "params4": params4,"station_code": params5, "distance": params6})
 
 def search_station(request):

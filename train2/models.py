@@ -102,11 +102,10 @@ class Stops_at(models.Model):
 class Reaches(models.Model):
     train_no = models.ForeignKey(Train, on_delete= models.SET_NULL, null=True)
     station_code = models.ForeignKey(Station, on_delete= models.SET_NULL, null=True)
-    arrival_time = models.TimeField()
-    dep_time = models.TimeField()
+    arrival_time = models.TimeField(null=True,blank=True)
+    dep_time = models.TimeField(null= True, blank= True)
     time = models.DurationField()
-    def __str__(self):
-        return self.train_no, self.station_code
+
 
 class Books(models.Model):
     user_id = models.ForeignKey(User, on_delete= models.SET_NULL, null=True)
