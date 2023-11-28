@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Booking{%endblock%}
 {% block link%}
-<link rel="stylesheet" href="static/css/contact.css" />
+<link rel="stylesheet" href="static/css/contact_us.css" />
 {% endblock %}
 
 {%block content%}
-<form class="p-3" method="get" action="http://127.0.0.1:8000/search_train">
-  <div class="mb-3">
-    <label for="" class="">Name</label>
+<form method="post" action="http://127.0.0.1:8000/contactus">
+  {% csrf_token %}
+  <div class="container">
+    <label for="" >Name</label>
     <input
       type="text"
-      class=""
-      id=""
       name="name"
+      placeholder="Enter your Name"
     />
   </div>
-  <div class="mb-3">
+  <div class="container">
     <label for="" class="">Email address</label>
     <input
       type="email"
@@ -23,29 +23,28 @@
       id=""
       aria-describedby="emailHelp"
       name="email"
+      placeholder="Enter your Email Address"
+
       required
     />
   </div>
 
-  <div class="mb-3">
+  <div class="container">
     <label for="" class="">Phone Number</label>
     <input
       type="number"
       class=""
       id=""
       name="phone"
+      placeholder="Enter your number"
+
     />
   </div>
-  <div class="mb-3">
+  <div class="container">
     <label for="" class="">Description</label>
-    <input
-      type="text"
-      class=""
-      id=""
-      name="desc"
-    />
+    <textarea id="desc" name="desc" rows="4" cols="50" placeholder="Why do you want to communicate to us" required></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="submit">Submit</button>
 </form>
 {%endblock%}

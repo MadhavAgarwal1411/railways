@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto+Condensed:wght@500&family=Roboto:wght@300&display=swap');
+*{
+    color: black;
+    font-family: roboto;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 8vh 5vh 0 5vh;
+    position: relative;
+    color: rgb(254, 249, 249);
+    padding-bottom: 10vh;
+    padding: 2vh 5vw 10vh 5vw;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30vw;
+    margin-bottom: 2vh;
+}
+
+form .container label{
+    font-size: 21px;
+}
+form .container input, textarea{
+    line-height: 2em;
+    width: 20vw;
+    text-align: center;
+    font-weight: 600;
+}
+textarea{
+    width: 30vw;
+    height: 5vw;
+}
+.submit{
+    padding: 0px 30px;
+    height: 35px;
+    margin-top: 45px;
+    width: 13vw;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
+    border : 1px solid transparent;
+    cursor: pointer;
+    border-radius: 10px;
+}

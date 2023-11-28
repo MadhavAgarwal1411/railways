@@ -23,11 +23,10 @@ nav{
 }
 nav ul{
     display: flex;
-    gap: 5%;
-    font-size: 30px;
-    font-weight: bolder;
+    gap: 2%;
+    font-size: 2px;
+    font-weight: lighter;
     flex-direction: row;
-    margin-left: 10%;
 }
 nav ul li{
     list-style-type: none;

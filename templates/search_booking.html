@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="static/css/search_station.css" />
+{% endblock %}
+
+{% block content %}
+<table>
+<caption>Train list</caption>
+  <tr>
+    <th>Train Number</th>
+    <th>Train Name</th>
+    <th>Station</th>
+    <th>Arrives At</th>
+    <th>Station</th>
+    <th>Arrives At</th>
+
+  </tr>
+
+  <tr style="display: table-cell">
+
+    {% for x in train_no %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell; text-align: center">
+    {% for x in train_name %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell; text-align: center">
+    {% for x in train_name %}
+    <td style="display: table-row; text-align: center">{{ start }}
+    </td>
+    {% endfor %}
+  </tr>
+  <tr style="display: table-cell; text-align: center">
+    {% for x in start_arrival %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+
+  <tr style="display: table-cell; text-align: center">
+    {% for x in start_arrival %}
+    <td style="display: table-row; text-align: center">{{ end }}
+    </td>
+    {% endfor %}
+  </tr> 
+  <tr style="display: table-cell">
+    {% for x in end_arrival %}
+    <td style="display: table-row; text-align: center">{{x}}</td>
+    {% endfor %}
+  </tr>
+
+
+</table>
+{% endblock %}

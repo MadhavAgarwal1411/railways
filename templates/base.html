@@ -5,21 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{%block title%}{%endblock%}</title>
     <link rel = "stylesheet" href = "static/css/base.css">
+
     {%block link %}{%endblock%}
 </head>
 <body>
     {%block head%}{% endblock%} 
     <nav>
-      <ul>
+      <ul style = "font-size: 30px;
+      gap: 3%;">
+        <li><a href="http://127.0.0.1:8000/booking">Booking</a></li>
         <li><a href="http://127.0.0.1:8000/status">Running Status</a></li>
         <li><a href="http://127.0.0.1:8000/search_by_name">Search by Name/Number</a></li>
         <li><a href="http://127.0.0.1:8000/search_by_station">Search by Station</a></li>
+        <li><a href="http://127.0.0.1:8000/contactus">Contact Us</a></li>
+        <li><a href="/logout">Logout</a></li>
 
       </ul>
     </nav>
     <hr />
   </div>
+  {% if messages %} {% for message in messages %}
 
+  <div
+    class="alert alert-{{ message.tags }} alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>{{ message }}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endfor %} {% endif %}
     {%block content %}{% endblock %}
 </body>
 </html>

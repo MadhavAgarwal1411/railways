@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link rel = "stylesheet" href = "static/css/signup.css">
+</head>
+<body>
+  <form method = "POST" action = "/signup">
+    <h1>Create an Account</h1>
+  
+      {% csrf_token %}
+  </div>
+      <div class="container">
+        <label for="start">Username</label>
+        <input type="text" placeholder="username" name = "name" size="10" class="inp" id="start" required autofocus/>
+  
+      </div>
+      <div class="container">
+        <label>Password</label>
+        <input type="password" size="30vw" placeholder="password" name = "password" class="inp" required/>
+      </div>
+  
+      <button type = "search" id="search">Sign Up</button>
+    </form>
+    
+  </div>
+  </form>
+</body>
+</html>

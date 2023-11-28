@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
+    'rest_framework',
 ]
+
+CRISPY_ALLOWED_TEMPLATES_PACKS = 'bootstap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,6 +118,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+API_KEY = '557764ca-8d20-11ee-8cbb-0200cd936042'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

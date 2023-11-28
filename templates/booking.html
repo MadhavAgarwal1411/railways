@@ -10,21 +10,17 @@
     <h1>TRAIN TICKET BOOKING</h1>
 
   </div>
-    <form id="form">
+    <form id="form" method = "get" action = "search_booking">
         <div class="container">
           <label for="start">From</label>
-          <input type="text" list="from" placeholder="Leaving From" size="30vw" class="inp" id="start" required autofocus/>
+          <input type="text" list="from" placeholder="Leaving From" size="30vw" class="inp" id="start" name="from" required autofocus/>
             <datalist id="from">
               <option value="Delhi">Delhi</option>
             </datalist>
         </div>
         <div class="container">
           <label>To</label>
-          <input type="text" size="30vw" placeholder="Going To" class="inp" required/>
-        </div>
-        <div class="container">
-          <label>Date</label>
-          <input type="text" size="30vw" placeholder="" class="inp" required/>
+          <input type="text" size="30vw" placeholder="Going To" class="inp" name ="to" required/>
         </div>
         <button type = "search" id="search">SEARCH</button>
       </form>
